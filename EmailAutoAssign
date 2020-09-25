@@ -1,0 +1,31 @@
+/**
+ * Author: Eddie Hunter
+ * Date: Sep 24, 2020
+ * Description: 
+ */
+import java.util.Scanner;
+public class EmailAutoAssign {
+	
+	public static void main (String args[]) {
+		String names[] = {"", "", ""};	
+		String nameType[] = { "first", "middle", "last" };
+		Scanner keyboard = new Scanner(System.in);
+		
+		for (int i = 0; i < 3; i++) {
+			System.out.println("What is your " + nameType[i] +" name?");
+			names[i] = keyboard.nextLine();
+		}
+		//create a username and temporary password
+		String username = names[2].toLowerCase() + 
+				names[0].substring(0, 1).toUpperCase() + 
+				names[1].substring(0, 1).toUpperCase() + "@sharkmail.com";
+		
+		System.out.println("When is your birthdate? [dd-mm-yyyy]");
+		String bDate = keyboard.nextLine();
+		String password = bDate.replace("-", "");
+		
+		System.out.println("Email: " + username);
+		System.out.println("Temp Password: " + password);
+		System.out.println("** please be sure to change the temporary password as soon as possible **");
+	}
+}
